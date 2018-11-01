@@ -1,0 +1,14 @@
+Transform: AWS::Serverless-2016-10-31
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  LoggingMacro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: 'MyLoggingMacro'
+      FunctionName: !GetAtt LoggingFunction.Arn
+  LoggingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../dist/src
+      Handler: debug.handler
+      Runtime: nodejs8.10

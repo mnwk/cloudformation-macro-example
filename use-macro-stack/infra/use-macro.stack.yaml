@@ -1,0 +1,12 @@
+Transform: 'MyLoggingMacro'
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'mnwk-test-my-bucket-a'
+      'Fn::Transform':
+        Name: 'MyLoggingMacro'
+        Parameters:
+          one: 'one'
+          two: 2
+          bool: false
